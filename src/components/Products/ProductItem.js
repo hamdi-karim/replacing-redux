@@ -1,13 +1,15 @@
 import "./ProductItem.css";
 
-import React from "react";
+import React, { useContext } from "react";
 
-import { toggleFav } from "../../store/actions/products";
+import { ProductsContext } from "../../context/products-context";
 import Card from "../UI/Card";
 
 const ProductItem = (props) => {
+  const toggleFav = useContext(ProductsContext).toggleFav;
+
   const toggleFavHandler = () => {
-    // dispatch(toggleFav(props.id));
+    toggleFav(props.id);
   };
 
   return (
